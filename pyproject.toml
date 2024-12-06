@@ -26,6 +26,7 @@ numba = [
 [project.urls]
 Homepage = "https://github.com/alexstaf/math-rounding"
 Issues = "https://github.com/alexstaf/math-rounding/issues"
+Changelog = "https://github.com/alexstaf/math-rounding/blob/main/CHANGELOG.md"
 
 [tool.hatch.version]
 source = "vcs"
