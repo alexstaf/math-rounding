@@ -15,7 +15,7 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 dependencies = [
-    "math-rounding"
+    "dummy-decorator~=1.0"
 ]
 
 [project.optional-dependencies]
