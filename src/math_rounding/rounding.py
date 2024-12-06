@@ -14,5 +14,5 @@ except ImportError:
 @_njit
 def math_rounding(n: Number, p: int = 0) -> float:
     assert isinstance(p, int)
-    s = 10 ** p
+    s = 10. ** p
     return int(copysign(abs(n) * s + 0.5, n)) / s
