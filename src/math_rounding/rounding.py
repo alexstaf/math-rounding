@@ -17,4 +17,4 @@ def math_rounding(n: Number, p: int = 0) -> float:
     if isnan(n) or isinf(n):
         return n
     s = 10. ** p
-    return copysign(int(abs(n) * s + 0.5) / s, n)
+    return copysign((abs(n) * s + 0.5) // 1.0 / s, n)

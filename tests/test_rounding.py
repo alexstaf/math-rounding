@@ -17,5 +17,19 @@ class TestSpecialFloats(unittest.TestCase):
         self.assertEqual(math_rounding(float("-inf"), 3), float("-inf"))
 
 
+class TestLargeNumbers(unittest.TestCase):
+    def test_beyond_int64_range(self):
+        self.assertEqual(math_rounding(1e20), 1e20)
+        self.assertEqual(math_rounding(-1e20), -1e20)
+
+    def test_near_int64_limit(self):
+        n = 9.223372036854776e18
+        self.assertEqual(math_rounding(n), n)
+
+    def test_large_with_negative_precision(self):
+        self.assertEqual(math_rounding(15, -1), 20.0)
+        self.assertEqual(math_rounding(5e15, -1), 5e15)
+
+
 if __name__ == "__main__":
     unittest.main()
