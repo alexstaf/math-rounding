@@ -4,6 +4,32 @@ import unittest
 from math_rounding import math_rounding
 
 
+class TestReadmeExamples(unittest.TestCase):
+    def test_examples(self):
+        self.assertEqual(math_rounding(0.5), 1.0)
+        self.assertEqual(math_rounding(-0.5), -1.0)
+        self.assertEqual(math_rounding(1.1), 1.0)
+        self.assertEqual(math_rounding(0.05, 1), 0.1)
+        self.assertEqual(math_rounding(5, -1), 10.0)
+        self.assertEqual(math_rounding(15, -1), 20.0)
+
+
+class TestMathematicalRounding(unittest.TestCase):
+    def test_half_away_from_zero(self):
+        self.assertEqual(math_rounding(1.5), 2.0)
+        self.assertEqual(math_rounding(-1.5), -2.0)
+        self.assertEqual(math_rounding(2.5), 3.0)
+        self.assertEqual(math_rounding(-2.5), -3.0)
+
+    def test_negative_zero_sign(self):
+        self.assertTrue(math.copysign(1, math_rounding(-0.0)) == -1.0)
+        self.assertTrue(math.copysign(1, math_rounding(-0.3)) == -1.0)
+
+    def test_positive_zero(self):
+        self.assertEqual(math_rounding(0.0), 0.0)
+        self.assertTrue(math.copysign(1, math_rounding(0.0)) == 1.0)
+
+
 class TestSpecialFloats(unittest.TestCase):
     def test_nan(self):
         n = float("nan")
