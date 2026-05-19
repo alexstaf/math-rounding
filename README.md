@@ -49,6 +49,13 @@ print(math_rounding(5, -1))    # 10.0
 print(math_rounding(15, -1))   # 20.0
 ```
 
+### Tests
+
+```bash
+pip install -e ".[numba]"
+python -m unittest discover -s tests -v
+```
+
 ## Limitations
 
 The function is optimized for typical `float` values and precision values. It uses IEEE-754 `float` arithmetic and (with `numba` installed) JIT-compiled code. Outside the ranges below, results may be wrong or an exception may be raised.
