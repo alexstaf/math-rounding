@@ -7,9 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- README section describing valid ranges for `p` and `n`.
+- Unit tests and a CI job to run them.
+
 ### Fixed
 
 - Preserve the sign of negative zero when the rounded result is zero.
+- Return `nan` and `±inf` unchanged.
+- Avoid incorrect results for very large `|n|` when using Numba (use `// 1.0` instead of `int()`).
 
 ## [1.0.1] - 2024-12-06
 
