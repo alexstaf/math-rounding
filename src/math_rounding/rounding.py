@@ -2,15 +2,12 @@
 Number rounding functions.
 """
 
-from math import copysign
+from math import copysign, isinf, isnan
 from numbers import Number
 
 try:
-    from numpy import astype, abs as _abs, copysign as _copysign
-    from functools import partial
-    _int = partial(lambda d, n: astype(n, d), int)
+    from numpy import abs as _abs, copysign as _copysign
 except ImportError:
-    _int = int
     _abs = abs
     _copysign = copysign
 
@@ -23,5 +20,7 @@ except ImportError:
 @_njit
 def math_rounding(n: Number, p: int = 0) -> float:
     assert isinstance(p, int)
+    if isnan(n) or isinf(n):
+        return n
     s = 10. ** p
-    return _int(_copysign(_abs(n) * s + 0.5, n)) / s
+    return _copysign((_abs(n) * s + 0.5) // 1.0 / s, n)
