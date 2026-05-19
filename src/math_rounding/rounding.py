@@ -15,6 +15,4 @@ except ImportError:
 def math_rounding(n: Number, p: int = 0) -> float:
     assert isinstance(p, int)
     s = 10. ** p
-    rounded_abs = int(abs(n) * s + 0.5) / s
-    return copysign(rounded_abs, n)
-
+    return copysign(int(abs(n) * s + 0.5) / s, n)
