@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- Unit tests for `numpy.float64` values (behavior matches earlier releases for typical scalar inputs).
+- CI job `test-without-numpy` that installs the package without optional dependencies (NumPy-specific tests are skipped).
+
+### Changed
+
+- When NumPy is installed, use `numpy.abs` and `numpy.copysign` instead of built-in functions; otherwise fall back to `abs` and `copysign` from `math` (no change in results for typical `float` and `numpy.float64` inputs).
+
 ## [1.0.2] - 2026-05-19
 
 ### Added
