@@ -52,7 +52,7 @@ print(math_rounding(15, -1))   # 20.0
 ### Tests
 
 ```bash
-pip install -e ".[numba]"
+pip install -e ".[numpy,numba]"
 python -m unittest discover -s tests -v
 ```
 
